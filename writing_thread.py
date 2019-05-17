@@ -16,6 +16,11 @@ class WritingThread(threading.Thread):
 
         ipc_lock.acquire()
         self.thread_mutex.acquire()
+        
+        if not os.path.exists(self.fname):
+            with open(self.fname, 'w') as f:
+                f.write('[]')
+                
         with open(self.fname, 'r') as f:
             old_items = json.load(f)
         self.thread_mutex.release()
