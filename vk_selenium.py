@@ -7,7 +7,7 @@ VK_FEED_URL = "https://vk.com/feed"
 
 class Vk:
     """
-    With selenium pulls post's data from VK using Chrome
+    With selenium pulls post's data from VK using Firefox
     """
 
     def __init__(self, user_login, user_password):
