@@ -10,6 +10,11 @@ class ReadingThread(threading.Thread):
     def run(self):
         for element in self.file_mutex_dict:
             element['thread_mutex'].acquire()
+                    
+            if not os.path.exists(self.fname):
+                with open(self.fname, 'w') as f:
+                    f.write('[]')
+                
             with open(element['fname'], 'r') as f:
                 items = json.load(f)
             element['thread_mutex'].release()
