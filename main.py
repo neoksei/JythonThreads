@@ -7,6 +7,9 @@ import fnames
 
 
 def main():
+    if not os.path.isdir('./Download'):
+        os.mkdir('./Download')
+        
     file_names = [fnames.TEXT, fnames.LINK, fnames.IMAGE]
     file_mutex_dict = []
     for file_name in file_names:
